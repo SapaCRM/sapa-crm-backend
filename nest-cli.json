@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/sapa-crm-backend/src",
+  "monorepo": true,
+  "root": "apps/sapa-crm-backend",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/sapa-crm-backend/tsconfig.app.json"
+  },
+  "projects": {
+    "sapa-crm-backend": {
+      "type": "application",
+      "root": "apps/sapa-crm-backend",
+      "entryFile": "main",
+      "sourceRoot": "apps/sapa-crm-backend/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/sapa-crm-backend/tsconfig.app.json"
+      }
+    },
+    "setup-service": {
+      "type": "application",
+      "root": "apps/setup-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/setup-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/setup-service/tsconfig.app.json"
+      }
+    },
+    "ticket-service": {
+      "type": "application",
+      "root": "apps/ticket-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/ticket-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/ticket-service/tsconfig.app.json"
+      }
+    },
+    "messaging-service": {
+      "type": "application",
+      "root": "apps/messaging-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/messaging-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/messaging-service/tsconfig.app.json"
+      }
+    },
+    "notification-service": {
+      "type": "application",
+      "root": "apps/notification-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/notification-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/notification-service/tsconfig.app.json"
+      }
+    },
+    "auth-service": {
+      "type": "application",
+      "root": "apps/auth-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/auth-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/auth-service/tsconfig.app.json"
+      }
+    },
+    "api-gateway": {
+      "type": "application",
+      "root": "apps/api-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
+      }
+    }
+  }
+}
