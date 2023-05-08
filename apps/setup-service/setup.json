@@ -1,0 +1,9 @@
+{
+    "sapa-crm" : {
+        "base_url" : ""
+    },
+    "rmq" : {
+        "url" : "amqp://localhost:5672 ",
+        "queue" : "RABBIT_MQ_SETUP_QUEUE"
+    }
+}

@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  rabbitmq:
+    image: rabbitmq
+    ports:
+      - 5672:5672
+
+  postgres:
+    image: postgres:latest
+    networks:
+      - postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/data/postgres
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=sapa-crm
+
+  pgadmin:
+    image: dpage/pgadmin4:6.18
+    networks:
+      - postgres
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@sapa-crm.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin-data:
