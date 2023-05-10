@@ -12,7 +12,15 @@ import * as Joi from 'joi';
     ConfigModule.forRoot({
       isGlobal: true,
       load: [setupConfiguration],
-      validationSchema: Joi.object({}),
+      validationSchema: Joi.object({
+        sapa_crm: Joi.object({
+          user_base_url: Joi.string().required(),
+        }),
+        rmq: Joi.object({
+          url: Joi.string().required(),
+          SETUP_QUEUE: Joi.string().required(),
+        }),
+      }),
     }),
   ],
   controllers: [SetupServiceController],

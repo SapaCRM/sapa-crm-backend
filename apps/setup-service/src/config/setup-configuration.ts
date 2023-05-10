@@ -1,6 +1,6 @@
-import SetupConfig from '../../setup.json';
-// const JSON_CONFIG_FILENAME = 'setup.json';
+import { join } from 'path';
+import * as SetupConfig from '../../setup.json';
 
 export default () => {
-  return SetupConfig as Record<string, any>;
+  return SetupConfig;
 };

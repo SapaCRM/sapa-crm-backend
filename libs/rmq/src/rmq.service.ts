@@ -10,8 +10,8 @@ export class RmqService {
     return {
       transport: Transport.RMQ,
       options: {
-        urls: [this.configService.get<string>('')],
-        queue: this.configService.get<string>(`RABBIT_MQ_${queue}_QUEUE`),
+        urls: [this.configService.get<string>('rmq.url')],
+        queue: this.configService.get<string>(`rmq.${queue}_QUEUE`),
         noAck,
         persistent: true,
       },

@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ApiGatewayModule } from './api-gateway.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { RmqService } from '@app/rmq';
 
 async function bootstrap() {
   const app = await NestFactory.create(ApiGatewayModule);
@@ -15,6 +16,9 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('v1/documentation', app, document);
+  const rmqService = app.get<RmqService>(RmqService);
+  app.connectMicroservice(rmqService.getOptions('API_GATEWAY'));
+  await app.startAllMicroservices();
   await app.listen(3000);
 }
 bootstrap();
