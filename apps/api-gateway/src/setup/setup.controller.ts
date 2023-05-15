@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { SetupService } from './setup.service';
 import { ValidateApiKeyDto } from './dto/validate-api-key.dto';
 import { SetupCrmDto } from './dto/setup-crm.dto';
@@ -33,8 +33,8 @@ export class SetupController {
     },
   })
   @Get()
-  async checkIsSetup() {
-    const data = await this.setupService.checkIsSetup();
+  async checkIsSetup(@Query('api-key') apiKey: string) {
+    const data = await this.setupService.checkIsSetup(apiKey);
     return {
       status: true,
       message: 'Company fetched successfully',

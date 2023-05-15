@@ -11,11 +11,15 @@ export class SetupService {
   ) {
     this.setupClient.connect();
   }
-  async checkIsSetup() {
-    const createTokenResponse = await firstValueFrom(
-      this.setupClient.send('check_is_setup', JSON.stringify('hello world')),
-    );
-    return;
+  async checkIsSetup(apiKey: string) {
+    try {
+      const checkIsSetupResponse = await firstValueFrom(
+        this.setupClient.send('check_is_setup', { apiKey }),
+      );
+      return checkIsSetupResponse;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async validateApiKey(validateApiKeyDto: ValidateApiKeyDto) {

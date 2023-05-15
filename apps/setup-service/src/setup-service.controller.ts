@@ -7,8 +7,7 @@ export class SetupServiceController {
   constructor(private readonly setupServiceService: SetupServiceService) {}
 
   @MessagePattern('check_is_setup')
-  public async checkIsSetup(@Payload() data: any) {
-    console.log('first');
-    console.log(data);
+  public async checkIsSetup(@Payload() data: { apiKey: string }) {
+    return this.setupServiceService.checkIsSetup(data.apiKey);
   }
 }

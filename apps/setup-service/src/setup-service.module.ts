@@ -5,10 +5,12 @@ import { RmqModule } from '@app/rmq';
 import { ConfigModule } from '@nestjs/config';
 import setupConfiguration from './config/setup-configuration';
 import * as Joi from 'joi';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
     RmqModule,
+    HttpModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [setupConfiguration],

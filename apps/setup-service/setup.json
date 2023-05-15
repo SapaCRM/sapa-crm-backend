@@ -1,6 +1,6 @@
 {
-    "sapa_crm_" : {
-        "user_base_url" : ""
+    "sapa_crm" : {
+        "user_base_url" : "http://localhost:6001/v1/api"
     },
     "rmq" : {
         "url" : "amqp://localhost:5672 ",
